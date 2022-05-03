@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        .set1 {
+            background: aqua;
+            color: purple;
+        }
+
+        .set2 {
+            text-decoration: red;
+            font-style: italic;
+        }
+
+        .set3 {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 아래의 div에 set1, set2, set3 스타일이 동적으로 적용되도록 binding 처리하시오.-->
+        <div v-bind:class="{set1:s1, set2:s2, set3:s3}">여기에 머 쓰면 스타일이 막 바뀐다며?</div>
+        <p>
+            <input type="checkbox" v-model="s1" value="true" />set1 적용<br />
+            <input type="checkbox" v-model="s2" value="true" />set2 적용<br />
+            <input type="checkbox" v-model="s3" value="true" />set3 적용<br />
+        </p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            s1: true,
+            s2: false,
+            s3: true,
+        },
+    });
+</script>
+
+</html>

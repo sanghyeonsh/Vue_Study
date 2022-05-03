@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>클릭 카운트 : {{count}}</h2>
+    <button @click="count++">카운트증가</button>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      // data: {
+      //   message: "안녕 VueJS!!!"
+      // },
+      data() {
+        return {
+          count: 0,
+        }
+      },
+      beforeCreate() {
+        console.log("beforeCreate 호출!!!!")
+        console.log("beforeCreate count : " + this.count);
+      },
+      //변수는 여기서!
+      created() {
+        console.log("created 호출!!!!")
+        console.log("created count : " + this.count);
+        console.log("created el : " + this.$el);
+      },
+      beforeMount() {
+        console.log("beforeMount 호출!!!!")
+        console.log("beforeMount count : " + this.count);
+      },
+      //el은 여기서!
+      mounted() {
+        console.log("mounted 호출!!!!")
+        console.log("mounted count : " + this.count);
+        console.log("mounted el : " + this.$el);
+      },
+      updated() {
+        console.log("updated 호출!!!!")
+      },
+      destroyed() {
+        console.log("destroyed 호출!!!!")
+      },
+    })
+  </script>
+</body>
+
+</html>

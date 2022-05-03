@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Insert title here</title>
+  <meta http-equiv="Cache-Control" content="No-Cache" />
+</head>
+
+<body>
+  <h1>v-model의 활용</h1>
+  <div id="select">
+    <label>가장 좋아하는 캐릭터는?</label>
+    <!-- TODO: text 타입의 input을 이용해 model의 favorite와 상호 연동되도록 처리하시오. -->
+    <input type="text" v-model.lazy="favorite">
+    <!-- END: -->
+    <br />
+    <label>팀 멤버를 선택하세요.</label>
+    <br />
+    <!-- TODO: checkbox를 이용해 아이언맨, 토르, 헐크 를 선택하고 그 값이 model의 team과 연동되도록 처리하시오. -->
+    <input v-model="team" type="checkbox" value="아이언맨" id="im" /><label for="im">아이언맨</label>
+    <input v-model="team" type="checkbox" value="토르" id="th" /><label for="th">토르</label>
+    <input v-model="team" type="checkbox" value="헐크" id="hk " /><label for="hk">헐크</label>
+    <!-- END: -->
+    <br />
+    <label>출생 연도는?</label>
+    <!-- TODO: model의 year와 상호 연동되도록 처리하시오. -->
+    <input type="number" v-model.number="year">
+    <!-- END: -->
+    <hr />
+    <span>당신의선택은</span><br />
+    <ul>
+      <li>캐릭터: {{ favorite }}</li>
+      <li>팀: {{ team }}</li>
+      <li>출생년도: {{ year+2 }}</li>
+    </ul>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  let model = {
+    favorite: "",
+    team: [],
+    year: ""
+  }
+  // TODO: #select에 적용될 Vue객체를 각각 설정하시오.
+  new Vue({
+    el: "#select",
+    data() {
+      return model;
+    }
+  })
+  // END:
+</script>
+
+</html>

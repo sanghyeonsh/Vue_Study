@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Insert title here</title>
+  <meta http-equiv="Cache-Control" content="No-Cache" />
+  <style>
+    img {
+      width: 15px;
+      height: 15px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="info">
+    <label>나이를 입력하세요.</label>
+    <!-- TODO: model의 age와 상호 연동하는 input을 작성하시오. -->
+    <input v-model="age" type="text" />
+    <span v-if="age<0">오류(if)</span><span v-show="age<0">오류(show)</span>
+    <!-- END: -->
+    <hr />
+
+    당신은
+    <!-- TODO: age 입력 값에 따라서 입력오류, 미취학, 미성년, 성년을 출력하시오. -->
+    <span v-if="age<0">입력오류</span>
+    <span v-else-if="age<8">미취학</span>
+    <span v-else-if="age<20">미성년</span>
+    <span v-else>성년</span>
+    <!-- END: -->
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  console.log("1" < 10)
+  console.log("90" < 10)
+  console.log("abc" > 10)
+  let vi = new Vue({
+    el: "#info",
+    data() {
+      return {
+        age: 0
+      }
+    }
+  });
+</script>
+
+</html>

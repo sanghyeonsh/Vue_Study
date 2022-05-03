@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #btn1 {
+      width: 200px;
+      background-color: blueviolet;
+    }
+
+    .btn1 {
+      width: 250px;
+      background-color: rgb(94, 219, 240);
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div v-bind:id="idValue">메세지</div>
+    <button v-bind:[key]="btnId">버튼</button> -->
+    <div :id="idValue">메세지</div>
+    <button :[key]="btnId">버튼</button>
+    <br />
+    <a :href="url1">이동하기</a>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          idValue: "test-id1",
+          key: "id",
+          btnId: "btn1",
+          url1: "http://www.ssafy.com",
+        };
+      },
+    })
+  </script>
+</body>
+
+</html>

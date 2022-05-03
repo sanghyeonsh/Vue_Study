@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>객체 배열 - 내용출력</h2>
+    <ul>
+      <li v-for="ssafy in ssafys" :key="ssafy.area">지역 : {{ssafy.area}}, {{ssafy.count}}개반</li>
+    </ul>
+    <h2>객체 배열 - 일련번호, 내용출력</h2>
+    <ul>
+      <li v-for="(ssafy, i) in ssafys" :key="ssafy.area">
+        {{i+1}}. {{ssafy.area}}, {{ssafy.count}}개반
+      </li>
+    </ul>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          ssafys: [{
+              area: "서울",
+              count: 11,
+            },
+            {
+              area: "대전",
+              count: 4,
+            },
+            {
+              area: "구미",
+              count: 2,
+            },
+            {
+              area: "광주",
+              count: 2,
+            },
+            {
+              area: "부울경",
+              count: 2,
+            },
+          ]
+        };
+      },
+    })
+  </script>
+</body>
+
+</html>

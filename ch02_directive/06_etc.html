@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Insert title here</title>
+        <meta http-equiv="Cache-Control" content="No-Cache" />
+        <style>
+            [v-cloak] {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <ul>
+                <li>{{ message }}</li>
+                <li v-pre>
+                    <ul>
+                        <li>여기는 뷰와 상관 없는 내용들</li>
+                        <li>쓸데없이 컴파일하려고 할 필요가 없습니다.</li>
+                        <li>{{ message }}</li>
+                    </ul>
+                </li>
+                <li>1: {{ calc() }}</li>
+                <li v-cloak>2: {{ calc() }}</li>
+            </ul>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let model = {
+            message: "Hello Vue!",
+        };
+
+        let app = new Vue({
+            el: "#app",
+            data: model,
+            methods: {
+                calc() {
+                    let result = 0;
+                    for (let i = 0; i < 1000000000; i++) {
+                        result += i;
+                    }
+                    for (let i = 0; i < 1000000000; i++) {
+                        result += i;
+                    }
+                    for (let i = 0; i < 1000000000; i++) {
+                        result += i;
+                    }
+                    return result;
+                },
+            },
+        });
+    </script>
+</html>

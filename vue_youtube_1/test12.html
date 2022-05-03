@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>단순 for문</h2>
+    <div v-for="i in 5" :key="index">{{i}}번</div><br />
+    <h2>객체 반복</h2>
+    <div v-for="value in student" :key="value.id">{{value}}</div>
+    <h2>배열돌리기</h2>
+    <div v-for="(area, index) in areas" :key="index">{{index+1}}. {{area}}</div>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          student: {
+            id: "kimssafy",
+            name: "김싸피",
+            age: 33,
+          },
+          areas: ["구미", "광주", "서울", "대전", "부울경"],
+          // areas: []
+        };
+      },
+      created() {
+        // ajax >> 서버에서 areas
+      },
+    })
+  </script>
+</body>
+
+</html>

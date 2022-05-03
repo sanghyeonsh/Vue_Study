@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <meta http-equiv="Cache-Control" content="No-Cache" />
+    <style>
+        .red-accent {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 다음의 div의 자식 요소들에 속성들을 할당하시오.
+        ul의 id는 mid로, 첫번째 li의 클래스는 mclass, 두 번째 li에 mystyle을 적용한다.
+        a 태그의 href와 title도 설정해본다.-->
+    <div id="app">
+        <ul v-bind:id="mid">
+            <li v-bind:class="mclass">클래스 바인딩</li>
+            <li v-bind:style="mystyle">스타일 바인딩</li>
+            <li><a :href="link.to" v-bind:title="link.title">가자</a></li>
+            <!-- v-bind:는 자주 쓰여서 :로 생략가능 -->
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let model = function () {
+        return {
+            mid: "list",
+            mclass: {
+                "red-accent": true
+            },
+            mystyle: "color:blue",
+            link: {
+                to: "http://google.com",
+                title: "구글로",
+            }
+        }
+    };
+    let vue = new Vue({
+        el: "#app",
+        data: model,
+    });
+</script>
+
+</html>

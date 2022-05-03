@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      // data: {
+      //   message: "안녕 VueJS!!!"
+      // },
+      data() {
+        return {
+          message: "Life Cycle Hooks."
+        }
+      },
+      created() {
+        console.log("created 호출!!!!")
+      },
+      mounted() {
+        console.log("mounted 호출!!!!")
+      },
+      updated() {
+        console.log("updated 호출!!!!")
+      },
+      destroyed() {
+        console.log("destroyed 호출!!!!")
+      },
+    })
+  </script>
+</body>
+
+</html>
