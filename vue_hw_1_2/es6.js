@@ -74,6 +74,7 @@ function test_5() {
   // Number 타입이면서 NaN인가?
   console.log(Number.isNaN(1));
 
+
   // 최소값
   console.log(Math.min(40, 50, 60));
   // 2의 3승
