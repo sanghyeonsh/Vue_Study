@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도서관리</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="header">
+      <a href="index.html"> <img src="./img/ssafy_logo.png" class="ssafy_logo" /></a>
+      <p class="logo">도서관리</p>
+    </div>
+    <div>
+      <h1>SSAFY 도서 삭제</h1>
+      <div>삭제중...</div>
+    </div>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      name: "delete",
+
+      created() {
+        // url에서 파라미터정보 얻기.
+        let uri = window.location.href.split("?");
+        let isbn = "";
+        if (uri.length == 2) {
+          console.log(uri[1]);
+          isbn = uri[1].split('=')[1];
+          console.log(isbn);
+        }
+        // localStorage에서 booklist로 저장된 도서 목록을 얻어온 후 JSON객체로 parsing한다.
+        const booklist = localStorage.getItem("booklist");
+
+        let newBook = {
+          books: [],
+        }
+        let removeBook = {
+          books: [],
+        }
+
+        if (booklist) {
+          newBook = JSON.parse(booklist);
+        }
+
+        // console.log(newBook.books[0].isbn)
+        // isbn 찾아서 book 화면에 보여줄 객체 저장
+        for (let i = 0; i < newBook.books.length; i++) {
+          if (newBook.books[i].isbn !== isbn) {
+            removeBook.books.push({
+              isbn: newBook.books[i].isbn,
+              title: newBook.books[i].title,
+              author: newBook.books[i].author,
+              price: newBook.books[i].price,
+              content: newBook.books[i].content,
+            });
+          }
+        }
+        localStorage.setItem("booklist", JSON.stringify(removeBook));
+
+
+
+        // localStorage에서 booklist로 저장된 도서 목록을 얻어온 후 JSON객체로 parsing한다.
+
+
+
+        // 도서목록에서 삭제할 isbn에 해당하지 않는 도서를 검색 booklist의 books 저장한다.
+
+
+
+        // 도서목록 booklist객체를 booklist라는 이름으로 localStorage에 저장한다.
+
+
+
+
+        // list.html 페이지로 이동.
+        location.href = "./list.html";
+      }
+    });
+  </script>
+</body>
+
+</html>
