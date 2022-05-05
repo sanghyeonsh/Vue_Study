@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  let name = "hong";
+  let person = {
+    age: 30,
+    name,
+    printInfo() {
+      console.log(this.age + " :" + this.name);
+    }
+  };
+  console.log(person)
+  person.printInfo();
+
+  let newPerson1 = {
+    person,
+    addr: "seoul"
+  }
+  //공통속성 따로 빼고 집어넣을 때 사용
+  let newPerson2 = {
+    ...person,
+    addr: "seoul"
+  }
+
+  console.log(newPerson1);
+  console.log(newPerson2);
+</script>
+
+</html>
