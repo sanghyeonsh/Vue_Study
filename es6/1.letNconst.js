@@ -6,7 +6,7 @@
         // let a=10;
         // let a=20;     //SyntaxError: Identifier 'a' has already been declared
         // console.log(a)   
-
+        // a                    
         // const 예약어는 한번 할당한 값을 변경할 수 없다
         const b=20;
         //b=30;    // Uncaught TypeError: Assignment to constant variable
