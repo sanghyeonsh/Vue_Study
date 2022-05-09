@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-comp></my-comp>
+    </div>
+    <template id="MyComp">
+        <div>
+            <h2>{{msg}}</h2>
+        </div>
+    </template>
+    <script type="module">
+        import MyComp from './components/MyComp.js'
+        new Vue({
+            el: "#app",
+            components: {
+                // MyComp: MyComp
+                MyComp
+            }
+        })
+    </script>
+</body>
+
+</html>

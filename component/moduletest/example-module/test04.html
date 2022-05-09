@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h2>컴포넌트 데이터 공유 문제</h2>
+    <div id="app">
+        <count-view></count-view>
+        <count-view></count-view>
+        <count-view></count-view>
+    </div>
+    <template id="CountView">
+        <div>
+            <span>{{ count }}</span>
+            <button @click="count++">클릭</button>
+        </div>
+    </template>
+    <script type="module">
+        import CountView from './components/CountView.js'
+        new Vue({
+            el: "#app",
+            components: {
+                CountView
+            }
+        })
+    </script>
+</body>
+
+</html>

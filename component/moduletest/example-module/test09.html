@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>당신이 좋아하는 파트를 선택하세요</h2>
+        <h2>{{ total }}</h2>
+        <subject v-on:addtotcount="addTotalCount" title="코딩"></subject>
+        <subject v-on:addtotcount="addTotalCount" title="알고리즘"></subject>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+<script type="module">
+    import Subject from './components/Subject.js'
+
+    new Vue({
+        el: '#app',
+        data: {
+            total: 0
+        },
+        methods: {
+            addTotalCount: function () {
+                this.total += 1;
+            }
+        },
+        components: {
+            Subject
+        }
+    })
+</script>
+
+</html>

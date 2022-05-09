@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <my-count></my-count>
+    <log></log>
+  </div>
+  <template id="myCount">
+    <div>
+      <input type="text" v-model.number="count" @keyup.enter="send" />
+      <button @click="send">보내기</button>
+    </div>
+  </template>
+  <template id="log">
+    <div>
+      <h2>{{count}}</h2>
+      <ul>
+        <li v-for="msg in list">{{msg}}</li>
+      </ul>
+    </div>
+  </template>
+  <script>
+    const bus = new Vue();
+    Vue.component('myCount', {
+      template: '#myCount',
+      data() {
+        return {
+          count: 0,
+        };
+      },
+      methods: {
+        send() {
+          bus.$emit('updateLog', this.count);
+          this.count = '';
+        },
+      },
+    });
+
+    Vue.component('Log', {
+      template: '#log',
+      data() {
+        return {
+          count: 0,
+          list: [],
+        };
+      },
+      methods: {
+        updateLog(data) {
+          this.count += data;
+          this.list.push(`${data}을 받았습니다.`);
+        },
+      },
+      created: function () {
+        bus.$on('updateLog', this.updateLog);
+      },
+    });
+
+    new Vue({
+      el: '#app',
+    });
+  </script>
+</body>
+
+</html>

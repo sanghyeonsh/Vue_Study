@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-count></my-count>
+        <log></log>
+    </div>
+    <template id="MyCount">
+        <div>
+            <input type="text" v-model.number="count" @keyup.enter="send">
+            <button @click="send">보내기</button>
+        </div>
+    </template>
+    <template id="Log">
+        <div>
+            <h2>{{count}}</h2>
+            <ul>
+                <li v-for="msg in list">{{msg}}</li>
+            </ul>
+        </div>
+    </template>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+<script>
+    const bus = new Vue();
+</script>
+<script type="module">
+    import MyCount from './components/MyCount.js'
+    import Log from './components/Log.js'
+
+    new Vue({
+        el: '#app',
+        components: {
+            MyCount,
+            Log
+        }
+    })
+</script>
+
+</html>

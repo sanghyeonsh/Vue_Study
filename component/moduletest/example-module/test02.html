@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app1">
+        <my-local></my-local>
+        <my-local></my-local>
+    </div>
+    <div id="app2">
+        <my-local></my-local>
+        <my-local></my-local>
+    </div>
+    <script type="module">
+        import MyLocal from './components/MyLocal.js'
+
+        new Vue({
+            el: "#app1",
+            components: {
+                // MyLocal: MyLocal
+                MyLocal
+            }
+        })
+        new Vue({
+            el: "#app2"
+        })
+    </script>
+</body>
+
+</html>

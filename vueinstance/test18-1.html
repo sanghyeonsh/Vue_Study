@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>method test</h2>
+        <div>
+            <label for="userid">아이디</label>
+            <input type="text" id="userid" ref="uid" v-model="userid">
+            <label for="username">이름</label>
+            <input type="text" id="username" v-model="username">
+            <button @click="checkVal">등록</button>
+        </div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                userid: "",
+                username: "",
+            },
+            methods: {
+                checkVal() {
+                    if (!this.userid) {
+                        alert("아이디 입력!!!");
+                        console.log(this);
+                        return;
+                    } else {
+                        this.register();
+                    }
+                },
+                register() {
+                    console.log("서버에 전송합니다.")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
