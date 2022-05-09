@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서관리</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header-nav></header-nav>
+      <book-delete></book-delete>
+    </div>
+    <script type="module">
+      import HeaderNav from "./components/HeaderNav.js";
+      import BookDelete from "./components/BookDelete.js";
+
+      new Vue({
+        el: "#app",
+        name: "delete",
+        components: {
+          HeaderNav,
+          BookDelete
+        }
+      });
+    </script>
+  </body>
+</html>

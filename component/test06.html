@@ -11,13 +11,28 @@
 <body>
   <div id="app">
     <h2>props test</h2>
-
+    <input type="text" v-model="msg"><br />
+    <child-component :pdata="msg"></child-component>
   </div>
   <script>
     //하위 컴포넌트
+    Vue.component("ChildComponent", {
+      template: `<span>{{pdata}}</span>`,
+      props: {
+        pdata: {
+          type: String,
+          required: true,
+        }
+      }
+    });
 
     new Vue({
       el: '#app',
+      data() {
+        return {
+          msg: "",
+        }
+      },
     });
   </script>
 </body>

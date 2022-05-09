@@ -13,9 +13,14 @@
     <my-comp></my-comp>
   </div>
   <!-- template 설정 -->
+  <template id="mycomp">
+    <div>
+      <h2>{{msg}}</h2>
+    </div>
+  </template>
   <script>
     Vue.component('MyComp', {
-      template: '#MyComp',
+      template: '#mycomp',
       data() {
         return {
           msg: 'hello component',
