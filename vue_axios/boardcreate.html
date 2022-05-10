@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판 목록</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="result">
+      <label for="subject">글제목</label>
+      <input type="text" id="subject" name="subject" v-model="subject" ref="subject" /><br />
+      <label for="content">글내용</label>
+      <input type="text" id="content" name="content" v-model="content" ref="content" /><br />
+      <label for="userid">작성자</label>
+      <input type="text" id="userid" name="userid" v-model="userid" ref="userid" /><br />
+      <button @click="checkValue">등록</button>
+    </div>
+  </div>
+  <script>
+    const URL = "http://localhost:9999/vue/board";
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          content: "",
+          subject: "",
+          userid: "",
+        }
+      },
+      methods: {
+        // 입력값 체크하기 - 체크가 성공하면 registBook 호출
+        checkValue() {
+          // 사용자 입력값 체크하기
+          // isbn, 제목, 저자, 가격, 설명이 없을 경우 각 항목에 맞는 메세지를 출력
+          let err = true;
+          let msg = "";
+          !this.userid &&
+            ((msg = "작성자 입력해주세요"),
+              (err = false),
+              this.$refs.userid.focus());
+          err &&
+            !this.subject &&
+            ((msg = "제목 입력해주세요"),
+              (err = false),
+              this.$refs.subject.focus());
+          err &&
+            !this.content &&
+            ((msg = "내용 입력해주세요"),
+              (err = false),
+              this.$refs.content.focus());
+
+          if (!err) alert(msg);
+          // 만약, 내용이 다 입력되어 있다면 registBook 호출
+          else this.registBoard();
+        },
+        registBoard() {
+          axios.post(URL, {
+              userid: this.userid,
+              subject: this.subject,
+              content: this.content,
+            })
+            .then(({
+              data
+            }) => {
+              let msg = "오류발생";
+              if (data === "success") {
+                msg = "등록완료";
+              }
+              alert(msg);
+
+            })
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>

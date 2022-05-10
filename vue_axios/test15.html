@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    // import axios from 'axios';
+    const URL = "https://jsonplaceholder.typicode.com/todos";
+
+    async function getTodo(URL) {
+      const response = await axios.get(URL);
+      const id = response.data[4].id;
+      const todo = await axios.get(`${URL}/${id}`);
+      console.log(todo.data.title);
+    }
+
+    getTodo(URL).catch((error) => {
+      console.log(error);
+    });
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

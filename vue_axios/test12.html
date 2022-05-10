@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+  <script>
+    // Promise객체 생성
+    const promise = new Promise((resolve, reject) => {
+      console.log("promise객체 생성.");
+      // resolve("성공^^!!");
+      reject("실패ㅠㅠ!!");
+    });
+
+    promise
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        console.log("finally실행")
+      })
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    // import axios from 'axios';
+    const URL = "https://jsonplaceholder.typicode.com/todos";
+
+    axios
+      .get(URL)
+      .then((response) => {
+        console.log("4", response.data[4].id);
+        return response.data[4].id;
+      })
+      .then((id) => {
+        console.log("5", id);
+        return axios.get(`${URL}/${id}`);
+      })
+      .then((todo) => {
+        console.log("6", todo.data.title);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        console.log("finally");
+      });
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
