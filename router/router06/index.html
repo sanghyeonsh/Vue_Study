@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .router-link-exact-active {
+        color: red;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>SSAFY - Router</h1>
+      <p>
+        <router-link :to="{name: 'main'}">HOME</router-link>
+        <router-link :to="{name: 'board'}">게시판</router-link>
+        <router-link :to="{name: 'qna'}">QnA</router-link>
+        <router-link :to="{name: 'gallery'}">갤러리</router-link>
+      </p>
+      <router-view></router-view>
+      <div>만든이 : SSAFY</div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
