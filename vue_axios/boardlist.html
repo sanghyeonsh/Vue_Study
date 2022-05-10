@@ -21,20 +21,26 @@
           <th>작성자</th>
           <th>작성시간</th>
         </tr>
-        <tr v-for="board in boards" :key="board.articleno">
+        <!-- <tr v-for="board in boards" :key="board.articleno">
           <td>{{ board.articleno }}</td>
           <td>{{ board.subject }}</td>
           <td>{{ board.content }}</td>
           <td>{{ board.userid }}</td>
           <td>{{ board.regtime }}</td>
-        </tr>
+        </tr> -->
+        <board-list-item v-for="(board,index) in boards" :key="index" :board="board" title="일반게시판입니다.">
+        </board-list-item>
       </table>
     </div>
   </div>
-  <script>
+  <script type="module">
+    import BoardListItem from "./BoardListItem.js";
     const URL = "http://localhost:9999/vue/board";
     new Vue({
       el: "#app",
+      components:{
+        BoardListItem,
+      },
       data() {
         return {
           boards: [],

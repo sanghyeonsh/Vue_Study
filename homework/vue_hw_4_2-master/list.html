@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사용자 관리 사이트</title>
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header-nav></header-nav>
+    <!-- 자식 컴포넌트에 전달할 속성-->
+    <user-list :__________="users"></user-list>
+  </div>
+  <script type="module">
+    import HeaderNav from "./components/HeaderNav.js";
+      import UserList from "./components/UserList.js";
+      new Vue({
+        el: "#app",
+        name: "list",
+        components: {
+          HeaderNav,
+          UserList,
+        },
+        data() {
+          return {
+            users: [],
+          };
+        },
+        // 화면에 사용할 사용자 리스트 초기화
+        created() {
+          const userList = localStorage.getItem("userList");
+          if (userList) this.users = JSON.parse(userList);
+        },
+      });
+    </script>
+</body>
+
+</html>

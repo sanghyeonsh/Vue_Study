@@ -61,7 +61,7 @@ export default {
 
     modifyBook() {
       axios
-        .put(`http://localhost:9999/vue/board`, {
+        .put(`http://localhost:9999/vue/board/${this.articleno}`, {
           articleno: this.articleno,
           userid: this.userid,
           subject: this.subject,
