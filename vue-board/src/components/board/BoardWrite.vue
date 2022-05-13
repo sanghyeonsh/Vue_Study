@@ -90,7 +90,7 @@ export default {
         });
     },
     moveList() {
-      this.$router.push("/list");
+      this.$router.push({ name: "list" });
     },
   },
 };

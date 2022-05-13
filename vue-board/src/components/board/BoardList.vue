@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     movePage() {
-      this.$router.push("/write");
+      this.$router.push({ name: "write" });
     },
   },
 };

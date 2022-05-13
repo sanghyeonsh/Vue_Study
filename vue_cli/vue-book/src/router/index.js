@@ -4,37 +4,36 @@ import BookList from "../components/BookList.vue";
 import BookView from "../components/BookView.vue";
 import BookModify from "../components/BookModify.vue";
 import BookDelete from "../components/BookDelete.vue";
-
+import BookCreate from "../components/BookCreate.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-
   {
     path: "/list",
     name: "list",
-    component: BookList
+    component: BookList,
   },
   {
     path: "/create",
     name: "create",
-    component: BookCreate
+    component: BookCreate,
   },
   {
     path: "/view",
     name: "view",
-    component: BookView
+    component: BookView,
   },
   {
     path: "/modify",
     name: "modify",
-    component: BookModify
+    component: BookModify,
   },
   {
     path: "/delete",
     name: "delete",
-    component: BookDelete
-  }
+    component: BookDelete,
+  },
 ];
 
 const router = new VueRouter({

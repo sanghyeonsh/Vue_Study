@@ -3,7 +3,6 @@
     <header-navi></header-navi>
     <!-- 현재 route에 맞는 component가 렌더링된다. -->
     <router-view></router-view>
-
   </div>
 </template>
 
@@ -12,10 +11,10 @@ import HeaderNavi from "./components/common/HeaderNavi.vue";
 
 export default {
   name: "app",
-  component:{
+  component: {
     HeaderNavi,
-  }
-}
+  },
+};
 </script>
 
 <style>

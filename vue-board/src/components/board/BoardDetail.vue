@@ -13,13 +13,17 @@
       <label for="content">내용</label>
       <div class="view" v-html="article.content"></div>
       <div style="padding-top: 15px">
-        <router-link :to="'./modify?articleno=' + article.articleno" class="btn"
+        <router-link
+          :to="{ name: 'modify', params: { articleno: article.articleno } }"
+          class="btn"
           >수정</router-link
         >
-        <router-link :to="'./delete?articleno=' + article.articleno" class="btn"
+        <router-link
+          :to="{ name: 'delete', params: { articleno: article.articleno } }"
+          class="btn"
           >삭제</router-link
         >
-        <router-link to="/list" class="btn">목록</router-link>
+        <router-link to="/board/list" class="btn">목록</router-link>
       </div>
     </div>
   </div>
